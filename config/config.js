@@ -1,3 +1,7 @@
+function generateRandomWhatsAppNumber() {
+  const randomNumber = Math.floor(Math.random() * 10000000000);
+  return `08${randomNumber}`;
+}
 module.exports = {
   baseUrl: "https://webot-dev.vitastore.id/v2",
   credentialAdv: {
@@ -15,8 +19,29 @@ module.exports = {
   loginPage: {
     emailField: "#auth_email",
     passwordField: "#auth_password",
-    eyeButton: "//html/body/div[2]/div/div[1]/div[1]/div[3]/div[2]/div/button",
-    forgotPassword: "//html/body/div[2]/div/div[1]/div[1]/div[3]/div[3]/a",
+    eyeButton:
+      "xpath//html/body/div/div/div[1]/div[1]/div[3]/div[2]/div/button",
+    forgotPassword: "xpath//html/body/div[2]/div/div[1]/div[1]/div[3]/div[3]/a",
     loginButton: "#auth_login",
+  },
+  transactionPage: {
+    menuTransaction: "xpath//html/body/div/div/div[1]/div[9]/div[3]/div",
+    tabEDX:
+      "xpath//html/body/div/div/div[1]/div[6]/div/div/div/div/div[2]/div[2]/label",
+    textAreaTemplate: "#weborderCreateExtractInput",
+    templateEDX: `Nama: Srihandayani1`,
+  },
+  profilePage: {
+    menuProfile: "xpath//html/body/div/div/div[1]/div[9]/div[5]/div",
+    menuPesanan: "/html/body/div/div/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]",
+    editProfile:
+      "/html/body/div/div/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div",
+    changePassword:
+      "/html/body/div/div/div[1]/div[1]/div[1]/div[2]/div[3]/div[4]/div",
+    logoutButton: "xpath//html/body/div/div/div[1]/div[1]/div[2]/button",
+    logoutNoButton:
+      "xpath//html/body/div/div/div[1]/div[1]/div[3]/div/div/div/div/div[2]/button[1]",
+    logoutYesButton:
+      "xpath//html/body/div/div/div[1]/div[1]/div[3]/div/div/div/div/div[2]/button[2]",
   },
 };
