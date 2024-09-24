@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const config = require("../../../config/config");
+const { createTemplate } = require("../../../utils/utils");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -22,19 +23,13 @@ const config = require("../../../config/config");
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);
 
-  await page.waitForSelector(config.transactionPage.tabEDX);
-  await page.click(config.transactionPage.tabEDX);
-
-  const templateEdx = await page.waitForSelector(
+  const textAreaTemplate = await page.waitForSelector(
     config.transactionPage.textAreaTemplate
   );
-  await templateEdx.click();
-  await page.keyboard.down("ControlLeft");
+  await page.focus(config.transactionPage.textAreaTemplate);
+  await page.keyboard.down("Control");
   await page.keyboard.press("A");
+  await page.keyboard.up("Control");
   await page.keyboard.press("Backspace");
-  const fillTemplate = await page.waitForSelector(
-    config.transactionPage.textAreaTemplate
-  );
-  await fillTemplate.click();
-  await page.type(config.transactionPage.templateEDX);
+  await textAreaTemplate.type(createTemplate());
 })();
