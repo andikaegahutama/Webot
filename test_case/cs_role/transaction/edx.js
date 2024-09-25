@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const config = require("../../../config/config");
-const { createTemplate } = require("../../../utils/utils");
+const { createTemplate, createTemplateEDM } = require("../../../utils/utils");
+const { error } = require("selenium-webdriver");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -31,5 +32,23 @@ const { createTemplate } = require("../../../utils/utils");
   await page.keyboard.press("A");
   await page.keyboard.up("Control");
   await page.keyboard.press("Backspace");
-  await textAreaTemplate.type(createTemplate());
+  await textAreaTemplate.type(createTemplateEDM());
+
+  await page.waitForSelector(config.transactionPage.submitTemplate);
+  await page.click(config.transactionPage.submitTemplate);
+
+  await page.waitForSelector(config.transactionPage.popupInsertDatabase);
+  await page.click(config.transactionPage.popupInsertDatabase);
+
+  await page.waitForSelector(config.transactionPage.popupInsertDatabase);
+  await page.click(config.transactionPage.popupInsertDatabase);
+
+  await page.waitForSelector(config.transactionPage.warehouseList);
+  await page.click(config.transactionPage.warehouseList);
+  await page.waitForSelector(config.transactionPage.warehouseSelect);
+  await page.click(config.transactionPage.warehouseSelect);
+  await page.waitForSelector(config.transactionPage.courirList);
+  await page.click(config.transactionPage.courirList);
+  await page.waitForSelector(config.transactionPage.courirSelect);
+  await page.click(config.transactionPage.courirSelect);
 })();

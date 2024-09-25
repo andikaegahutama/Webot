@@ -25,6 +25,18 @@ module.exports = {
     tabEDX:
       "xpath//html/body/div/div/div[1]/div[6]/div/div/div/div/div[2]/div[2]/label",
     textAreaTemplate: "#weborderCreateExtractInput",
+    submitTemplate:
+      "xpath//html/body/div/div/div[1]/div[6]/div/div/div/div/div[4]/button[2]",
+    popupInsertDatabase:
+      "xpath//html/body/div/div/div[1]/div[5]/div/div/div/div/div/div[2]/button",
+    warehouseList: "#react-select-6-input",
+    warehouseSelect: "#react-select-6-option-0",
+    courirList: "#react-select-7-input",
+    courirSelect: "#react-select-7-option-0",
+    reviewButton:
+      "xpath//html/body/div/div/div[1]/div[3]/div/div[2]/div/button[2]",
+    submitButton:
+      "xpath//html/body/div/div/div[1]/div[3]/div/div[2]/div/button[2]",
   },
   profilePage: {
     menuProfile: "xpath//html/body/div/div/div[1]/div[9]/div[5]/div",
