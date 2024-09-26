@@ -1,10 +1,10 @@
 const puppeteer = require("puppeteer");
-const config = require("../../../config/config");
+const config = require("../../config/config");
 const {
   createTemplate,
   createTemplateEDX,
   createTemplateEDXKodeUnik,
-} = require("../../../utils/utils");
+} = require("../../utils/utils");
 const { error } = require("selenium-webdriver");
 
 (async () => {
@@ -27,9 +27,6 @@ const { error } = require("selenium-webdriver");
 
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);
-
-  await page.waitForSelector(config.transactionPage.tabEDX);
-  await page.click(config.transactionPage.tabEDX);
 
   const textAreaTemplate = await page.waitForSelector(
     config.transactionPage.textAreaTemplate
