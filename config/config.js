@@ -20,6 +20,24 @@ module.exports = {
     forgotPassword: "xpath//html/body/div[2]/div/div[1]/div[1]/div[3]/div[3]/a",
     loginButton: "#auth_login",
   },
+  shippingPage: {
+    menuShipping:
+      "xpath//html/body/div/div/div[1]/div[1]/div/div[4]/div/button[1]",
+    edxShipping:
+      "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[2]/fieldset/div[2]",
+    locationInput: "#teritoryLokasiInput",
+    locationEnter: "#react-select-5-option-0",
+    locationSelect: "#react-select-6-option-0",
+    addProduct:
+      "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[5]/button",
+    productList: "#react-select-7-input",
+    productSelect: "#react-select-7-option-0",
+    quantityList: "#productQuantityInput",
+    addProductModal:
+      "xpath//html/body/div/div/div[1]/div[2]/div/div/div/div/div/div[3]/button[2]",
+    submitButton:
+      "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[8]/button",
+  },
   transactionPage: {
     menuTransaction: "xpath//html/body/div/div/div[1]/div[9]/div[3]/div",
     tabEDX:
