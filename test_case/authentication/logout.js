@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const config = require("../../config/config");
+const { performLogin } = require("../authentication/login");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -9,17 +10,15 @@ const config = require("../../config/config");
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 1000, height: 700 });
-  await page.goto(`${config.baseUrl}/login`);
-  await page.waitForSelector(config.loginPage.emailField);
-  await page.type(config.loginPage.emailField, config.credentialCs.email);
-  await page.waitForSelector(config.loginPage.passwordField);
-  await page.type(config.loginPage.passwordField, config.credentialCs.password);
-  await page.click(config.loginPage.loginButton);
-  await page.waitForNavigation();
+
+  await performLogin(page);
+
   await page.waitForSelector(config.profilePage.menuProfile);
   await page.click(config.profilePage.menuProfile);
+
   await page.waitForSelector(config.profilePage.logoutButton);
   await page.click(config.profilePage.logoutButton);
+
   await page.waitForSelector(config.profilePage.logoutYesButton);
   await page.click(config.profilePage.logoutYesButton);
 })();

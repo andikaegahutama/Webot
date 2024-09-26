@@ -1,11 +1,10 @@
 const puppeteer = require("puppeteer");
 const config = require("../../config/config");
 const {
-  createTemplate,
   createTemplateEDX,
   createTemplateEDXKodeUnik,
 } = require("../../utils/utils");
-const { error } = require("selenium-webdriver");
+const { performLogin } = require("../authentication/login");
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -15,15 +14,8 @@ const { error } = require("selenium-webdriver");
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 1000, height: 700 });
-  await page.goto(`${config.baseUrl}/login`);
-  await page.waitForSelector(config.loginPage.emailField);
-  await page.type(config.loginPage.emailField, config.credentialCs.email);
-  await page.waitForSelector(config.loginPage.passwordField);
-  await page.type(config.loginPage.passwordField, config.credentialCs.password);
-  await page.waitForSelector(config.loginPage.eyeButton);
-  await page.click(config.loginPage.eyeButton);
-  await page.click(config.loginPage.loginButton);
-  await page.waitForNavigation();
+
+  await performLogin(page);
 
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);

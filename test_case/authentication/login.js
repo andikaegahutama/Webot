@@ -1,14 +1,6 @@
-const puppeteer = require("puppeteer");
 const config = require("../../config/config");
 
-(async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: [`--window-size=1920,1080`],
-    devtools: true,
-  });
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1000, height: 700 });
+async function performLogin(page) {
   await page.goto(`${config.baseUrl}/login`);
 
   await page.waitForSelector(config.loginPage.emailField);
@@ -27,4 +19,6 @@ const config = require("../../config/config");
   await page.click(config.loginPage.loginButton);
 
   await page.waitForNavigation();
-})();
+}
+
+module.exports = { performLogin };

@@ -78,6 +78,32 @@ Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
   return template;
 }
 
+function createTemplateEDMKodeUnik() {
+  const template = `Nama: ${chance.name()}
+Whatapp: ${generateRandomWhatsAppNumber()}
+  
+Kecamatan: secang
+Kelurahan: donorejo
+Kode Pos: 56595
+RT: 3
+RW: 4
+Alamat: Jl. Poros KM.11 dsn. Pelangi Dua
+  
+Pesanan: ${generateRandomNumbers()} ${generateRandomProductEDM()}
+Jenis Pembayaran: TF-UNIQUECODE
+Potongan Ongkir: 11.000
+Biaya Admin: 1000
+  
+      
+Advertiser: DODO
+Platform Adv: Snack Video
+Platform Crm: Tiktok
+TIM: Vitasma
+Tim Shift: Vitasma A
+Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
+  return template;
+}
+
 function createTemplateEDX() {
   const template = `Nama: ${chance.name()}
 Whatapp: ${generateRandomWhatsAppNumber()}
@@ -132,6 +158,7 @@ Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
 
 module.exports = {
   createTemplateEDM,
+  createTemplateEDMKodeUnik,
   createTemplateEDX,
   createTemplateEDXKodeUnik,
 };
