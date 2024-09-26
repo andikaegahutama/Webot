@@ -37,6 +37,8 @@ module.exports = {
       "xpath//html/body/div/div/div[1]/div[3]/div/div[2]/div/button[2]",
     submitButton:
       "xpath//html/body/div/div/div[1]/div[3]/div/div[2]/div/button[2]",
+    kodeUnikBank:
+      "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[7]/fieldset/div[1]",
   },
   profilePage: {
     menuProfile: "xpath//html/body/div/div/div[1]/div[9]/div[5]/div",

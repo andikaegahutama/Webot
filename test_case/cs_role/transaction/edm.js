@@ -28,9 +28,6 @@ const { error } = require("selenium-webdriver");
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);
 
-  await page.waitForSelector(config.transactionPage.tabEDX);
-  await page.click(config.transactionPage.tabEDX);
-
   const textAreaTemplate = await page.waitForSelector(
     config.transactionPage.textAreaTemplate
   );

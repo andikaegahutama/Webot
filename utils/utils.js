@@ -39,15 +39,28 @@ function generateRandomProductEDM() {
   return productEDM[randomProduct];
 }
 
+function generateRandomProductEDX() {
+  let productEDX = [
+    "vitasma",
+    "deep beauty",
+    "eyebost",
+    "dipslipy",
+    "vitameal",
+    "vitummy",
+  ];
+  const randomProduct = Math.floor(Math.random() * productEDX.length);
+  return productEDX[randomProduct];
+}
+
 function createTemplateEDM() {
   const template = `Nama: ${chance.name()}
 Whatapp: ${generateRandomWhatsAppNumber()}
   
 Kecamatan: secang
 Kelurahan: donorejo
-Kode Pos: ${generateRandomPostCode()}
-RT: ${generateRandomNumbers()}
-RW: ${generateRandomNumbers()}
+Kode Pos: 56595
+RT: 3
+RW: 4
 Alamat: Jl. Poros KM.11 dsn. Pelangi Dua
   
 Pesanan: ${generateRandomNumbers()} ${generateRandomProductEDM()}
@@ -65,6 +78,60 @@ Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
   return template;
 }
 
+function createTemplateEDX() {
+  const template = `Nama: ${chance.name()}
+Whatapp: ${generateRandomWhatsAppNumber()}
+  
+Kecamatan: secang
+Kelurahan: donorejo
+Kode Pos: 56595
+RT: 3
+RW: 4
+Alamat: Jl. Poros KM.11 dsn. Pelangi Dua
+  
+Pesanan: ${generateRandomNumbers()} ${generateRandomProductEDX()}
+Jenis Pembayaran: COD
+Potongan Ongkir: 11.000
+Biaya Admin: 1000
+  
+      
+Advertiser: DODO
+Platform Adv: Snack Video
+Platform Crm: Tiktok
+TIM: Vitasma
+Tim Shift: Vitasma A
+Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
+  return template;
+}
+
+function createTemplateEDXKodeUnik() {
+  const template = `Nama: ${chance.name()}
+Whatapp: ${generateRandomWhatsAppNumber()}
+  
+Kecamatan: secang
+Kelurahan: donorejo
+Kode Pos: 56595
+RT: 3
+RW: 4
+Alamat: Jl. Poros KM.11 dsn. Pelangi Dua
+  
+Pesanan: ${generateRandomNumbers()} ${generateRandomProductEDX()}
+Jenis Pembayaran: TF-UNIQUECODE
+Potongan Ongkir: 11.000
+Biaya Admin: 1000
+  
+      
+Advertiser: DODO
+Platform Adv: Snack Video
+Platform Crm: Tiktok
+TIM: Vitasma
+Tim Shift: Vitasma A
+Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
+  return template;
+}
+
 module.exports = {
   createTemplateEDM,
+  createTemplateEDX,
+  createTemplateEDXKodeUnik,
 };
