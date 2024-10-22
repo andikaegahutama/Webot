@@ -1,17 +1,35 @@
 module.exports = {
+  //setting puppeteer
+  browserConfig: {
+    headless: false,
+    args: ["--window-size=1920,1080"],
+    devtools: true,
+  },
+
+  //set viewport
+  viewport: {
+    width: 1000,
+    height: 700,
+  },
+
+  //url
   baseUrl: "https://webot-dev.vitastore.id/v2",
-  credentialAdv: {
+
+  //account
+  adv: {
     email: "adv.abdul@erdigma.id",
     password: "4067ef3f",
   },
-  credentialCrm: {
+  crm: {
     email: "crm.laras@erdigma.id",
     password: "0befb5bc276d",
   },
-  credentialCs: {
+  cs: {
     email: "cs.dien@erdigma.id",
     password: "lOg2vxVX",
   },
+
+  //login page
   loginPage: {
     emailField: "#auth_email",
     passwordField: "#auth_password",
@@ -20,6 +38,8 @@ module.exports = {
     forgotPassword: "xpath//html/body/div[2]/div/div[1]/div[1]/div[3]/div[3]/a",
     loginButton: "#auth_login",
   },
+
+  //shipping page
   shippingPage: {
     menuShipping:
       "xpath//html/body/div/div/div[1]/div[1]/div/div[4]/div/button[1]",
@@ -38,8 +58,10 @@ module.exports = {
     submitButton:
       "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[8]/button",
   },
+
+  //transaction page
   transactionPage: {
-    menuTransaction: "xpath//html/body/div/div/div[1]/div[9]/div[3]/div",
+    menuTransaction: "xpath//html/body/div/div/div[1]/div[10]/div[3]/div",
     tabEDX:
       "xpath//html/body/div/div/div[1]/div[6]/div/div/div/div/div[2]/div[2]/label",
     textAreaTemplate: "#weborderCreateExtractInput",
@@ -58,8 +80,10 @@ module.exports = {
     kodeUnikBank:
       "xpath//html/body/div/div/div[1]/div[1]/div/div[2]/div[7]/fieldset/div[1]",
   },
+
+  //profile page
   profilePage: {
-    menuProfile: "xpath//html/body/div/div/div[1]/div[9]/div[5]/div",
+    menuProfile: "xpath//html/body/div/div/div[1]/div[10]/div[5]/div",
     menuPesanan: "/html/body/div/div/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]",
     editProfile:
       "/html/body/div/div/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div",

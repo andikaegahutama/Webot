@@ -1,24 +1,20 @@
 const puppeteer = require("puppeteer");
 const config = require("../../config/config");
-const { performLogin } = require("../authentication/login");
+const { login } = require("../../utils/loginUtils");
 
 (async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: [`--window-size=1920,1080`],
-    devtools: true,
-  });
+  const browser = await puppeteer.launch(config.browserConfig);
   const page = await browser.newPage();
-  await page.setViewport({ width: 1000, height: 700 });
 
-  await performLogin(page);
+  await page.setViewport(config.viewport);
+
+  await login(page, "cs");
 
   await page.waitForSelector(config.shippingPage.menuShipping);
   await page.click(config.shippingPage.menuShipping);
 
   await page.waitForSelector(config.shippingPage.locationInput);
   await page.click(config.shippingPage.locationInput);
-
   await page.type(config.shippingPage.locationInput, "Cilacap");
 
   await page.waitForSelector(config.shippingPage.locationEnter);

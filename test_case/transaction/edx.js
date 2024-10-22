@@ -1,21 +1,15 @@
 const puppeteer = require("puppeteer");
 const config = require("../../config/config");
-const {
-  createTemplateEDX,
-  createTemplateEDXKodeUnik,
-} = require("../../utils/utils");
-const { performLogin } = require("../authentication/login");
+const { login } = require("../../utils/loginUtils");
+const { createTemplateEDX } = require("../../utils/templateUtils");
 
 (async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: [`--window-size=1920,1080`],
-    devtools: true,
-  });
+  const browser = await puppeteer.launch(config.browserConfig);
   const page = await browser.newPage();
-  await page.setViewport({ width: 1000, height: 700 });
 
-  await performLogin(page);
+  await page.setViewport(config.viewport);
+
+  await login(page, "cs");
 
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);
@@ -31,7 +25,7 @@ const { performLogin } = require("../authentication/login");
   await page.keyboard.press("A");
   await page.keyboard.up("Control");
   await page.keyboard.press("Backspace");
-  await textAreaTemplate.type(createTemplateEDXKodeUnik());
+  await textAreaTemplate.type(createTemplateEDX());
 
   await page.waitForSelector(config.transactionPage.submitTemplate);
   await page.click(config.transactionPage.submitTemplate);
@@ -40,6 +34,7 @@ const { performLogin } = require("../authentication/login");
     await page.waitForSelector(config.transactionPage.popupInsertDatabase);
     await page.click(config.transactionPage.popupInsertDatabase);
   }, 4000);
+
   setTimeout(async () => {
     await page.waitForSelector(config.transactionPage.popupInsertDatabase);
     await page.click(config.transactionPage.popupInsertDatabase);
@@ -49,6 +44,7 @@ const { performLogin } = require("../authentication/login");
     await page.waitForSelector(config.transactionPage.kodeUnikBank);
     await page.click(config.transactionPage.kodeUnikBank);
   }, 6000);
+
   setTimeout(async () => {
     await page.waitForSelector(config.transactionPage.warehouseList);
     await page.click(config.transactionPage.warehouseList);

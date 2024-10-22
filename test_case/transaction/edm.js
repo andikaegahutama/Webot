@@ -1,21 +1,15 @@
 const puppeteer = require("puppeteer");
 const config = require("../../config/config");
-const {
-  createTemplateEDM,
-  createTemplateEDMKodeUnik,
-} = require("../../utils/utils");
-const { performLogin } = require("../authentication/login");
+const { login } = require("../../utils/loginUtils");
+const { createTemplateEDM } = require("../../utils/templateUtils");
 
 (async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: [`--window-size=1920,1080`],
-    devtools: true,
-  });
+  const browser = await puppeteer.launch(config.browserConfig);
   const page = await browser.newPage();
-  await page.setViewport({ width: 1000, height: 700 });
 
-  await performLogin(page);
+  await page.setViewport(config.viewport);
+
+  await login(page, "cs");
 
   await page.waitForSelector(config.transactionPage.menuTransaction);
   await page.click(config.transactionPage.menuTransaction);
@@ -28,7 +22,7 @@ const { performLogin } = require("../authentication/login");
   await page.keyboard.press("A");
   await page.keyboard.up("Control");
   await page.keyboard.press("Backspace");
-  await textAreaTemplate.type(createTemplateEDMKodeUnik());
+  await textAreaTemplate.type(createTemplateEDM());
 
   await page.waitForSelector(config.transactionPage.submitTemplate);
   await page.click(config.transactionPage.submitTemplate);
