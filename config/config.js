@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   //setting puppeteer
   browserConfig: {
@@ -17,16 +19,16 @@ module.exports = {
 
   //account
   adv: {
-    email: "adv.abdul@erdigma.id",
-    password: "4067ef3f",
+    email: process.env.ADV_EMAIL,
+    password: process.env.ADV_PASSWORD,
   },
   crm: {
-    email: "crm.laras@erdigma.id",
-    password: "0befb5bc276d",
+    email: process.env.CRM_EMAIL,
+    password: process.env.CRM_PASSWORD,
   },
   cs: {
-    email: "cs.dien@erdigma.id",
-    password: "lOg2vxVX",
+    email: process.env.CS_EMAIL,
+    password: process.env.CS_PASSWORD,
   },
 
   //login page

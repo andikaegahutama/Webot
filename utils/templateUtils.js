@@ -62,8 +62,7 @@ Platform Adv: Snack Video
 Platform Crm: Tiktok
 TIM: Vitasma
 Tim Shift: Vitasma A
-Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1
-    `;
+Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
 }
 
 function createTemplateEDX() {
@@ -87,8 +86,7 @@ Platform Adv: Snack Video
 Platform Crm: Tiktok
 TIM: Vitasma
 Tim Shift: Vitasma A
-Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1
-    `;
+Notes: PROMO KILAT|WAJI 1|105000 ; DIPSIPY BELI 2 gratis 1`;
 }
 
 module.exports = { createTemplateEDM, createTemplateEDX };
